@@ -1,0 +1,21 @@
+# Godot 4 project ignore rules
+
+# Godot-generated editor + import cache
+.godot/
+.import/
+export.cfg
+export_presets.cfg
+
+# Exported builds
+build/
+exports/
+*.exe
+*.pck
+*.zip
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
