@@ -55,14 +55,19 @@ dodge-the-creeps/
 ├── README.md              ← you are here
 ├── LICENSE
 ├── .gitignore             ← Godot-aware ignore rules
+├── project.godot          ← Godot project manifest (makes the folder importable)
+├── art/                   ← sprites & images you import
+├── audio/                 ← music & sound effects
+├── scenes/                ← your .tscn scene files (Player, Mob, Main, HUD…)
+├── scripts/               ← your .gd scripts
 └── docs/
     ├── LEARNING_PLAN.md   ← the 7-module enhanced curriculum
     ├── GLOSSARY.md        ← every Godot / GDScript term, defined
     └── PROGRESS.md        ← checklist + reflection log
 ```
 
-Game files (`project.godot`, `*.tscn`, `*.gd`, `art/`, `audio/`) appear here as I
-build each module.
+The `art/`, `audio/`, `scenes/`, and `scripts/` folders start empty (tracked via
+`.gitkeep`) and fill up as you build each module.
 
 ---
 

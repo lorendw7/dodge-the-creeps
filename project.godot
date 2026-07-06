@@ -1,0 +1,25 @@
+; Engine configuration file.
+; This is the Godot project manifest. When Godot's Project Manager sees this
+; file in a folder, that folder becomes an importable project.
+; Godot will rewrite/expand this file automatically the first time you open it.
+; Docs: https://docs.godotengine.org/en/stable/tutorials/editor/project_settings.html
+
+config_version=5
+
+[application]
+
+config/name="Dodge the Creeps"
+; config/run/main_scene will be set later, once you build scenes/Main.tscn.
+
+[display]
+
+; The classic Dodge the Creeps play field is a tall 480 x 720 window.
+window/size/viewport_width=480
+window/size/viewport_height=720
+; Scale the whole canvas so the game looks right on any window size.
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+; GL Compatibility is the safest 2D renderer for beginners and Web export.
+renderer/rendering_method="gl_compatibility"
