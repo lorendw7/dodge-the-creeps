@@ -63,6 +63,7 @@ dodge-the-creeps/
 ├── scripts/               ← your .gd scripts
 └── docs/
     ├── LEARNING_PLAN.md   ← the 7-module enhanced curriculum
+    ├── ASSETS.md          ← every asset file, where it lives & what uses it
     ├── GLOSSARY.md        ← every Godot / GDScript term, defined
     └── PROGRESS.md        ← checklist + reflection log
 ```

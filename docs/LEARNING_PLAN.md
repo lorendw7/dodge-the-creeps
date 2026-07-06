@@ -62,15 +62,19 @@ actually is* before adding a single node.
   not by deep class hierarchies. This is the single most important idea in the engine.
 
 ### Build steps
-1. Create a new project (Compatibility or Forward+ renderer is fine for 2D).
-2. Decide and create a folder layout, e.g. `art/`, `audio/`, `scenes/`, `scripts/`.
-3. Import the official asset pack into `art/` and `audio/`.
-4. Set the default window size / stretch mode in **Project Settings** so the game
-   has a fixed play field.
+> The repo is already scaffolded for you: `project.godot` exists, the folder layout
+> (`art/ audio/ fonts/ scenes/ scripts/`) is created, and the official assets are
+> sorted (see [`ASSETS.md`](ASSETS.md)). Your job here is to *understand* that setup,
+> not recreate it.
+1. **Import** the project into Godot (Project Manager → Import → pick `project.godot`).
+2. Open the FileSystem dock and confirm the assets sit under `art/`, `audio/`, `fonts/`.
+3. Open **Project Settings** and find the window size (480×720) and stretch mode that
+   `project.godot` already sets — understand what each does.
+4. Note the `.godot/` cache Godot just generated and why it's git-ignored.
 
 ### Checkpoint
 Project opens, assets are visible in the FileSystem dock, and an empty main window
-runs (F5) without errors.
+runs (F5) without errors (Godot will prompt for a main scene — cancel for now).
 
 ### Reflection
 - Why does Godot save scenes as separate files instead of one big project file?
@@ -101,8 +105,9 @@ collision shape and a two-state sprite animation.
 
 ### Build steps
 1. Create the Player scene with an `Area2D` root; rename it meaningfully.
-2. Add `AnimatedSprite2D`; build a `SpriteFrames` resource with two animations
-   ("walk", "up") from the sprite images.
+2. Add `AnimatedSprite2D`; build a `SpriteFrames` resource with two animations:
+   - `walk` ← `art/playerGrey_walk1.png` + `playerGrey_walk2.png`
+   - `up` ← `art/playerGrey_up1.png` + `playerGrey_up2.png`
 3. Scale the sprite down if needed; add a `CollisionShape2D` sized to the body.
 4. Save as its own scene under `scenes/`.
 
@@ -191,8 +196,9 @@ speed**, moves on its own, and **cleans itself up** when off-screen.
 - **Randomness for variety** — seeding, ranges, and picking from a set.
 
 ### Build steps
-1. Create the Mob scene: `RigidBody2D` root, `AnimatedSprite2D` (3 mob types),
-   `CollisionShape2D`, `VisibleOnScreenNotifier2D`.
+1. Create the Mob scene: `RigidBody2D` root, `AnimatedSprite2D` (3 mob types —
+   `walk`/`swim`/`fly` from the `enemyWalking`, `enemySwimming`, `enemyFlyingAlt`
+   PNG pairs in `art/`), `CollisionShape2D`, `VisibleOnScreenNotifier2D`.
 2. In `_ready()`, pick a random animation from the sprite frames' animation list.
 3. Connect the notifier's `screen_exited` signal to `queue_free()`.
 
@@ -280,7 +286,8 @@ transient messages — communicating with the game **only through signals**.
 
 ### Build steps
 1. Build the HUD scene on a `CanvasLayer`: score `Label`, message `Label`,
-   `StartButton`, and a message `Timer`.
+   `StartButton`, and a message `Timer`. Apply `fonts/Xolonium-Regular.ttf` to the
+   labels/button via a theme or font override.
 2. Add `show_message()`, a game-over sequence, `update_score()`, and a `start_game`
    signal emitted by the button.
 3. In Main, connect HUD's `start_game` → `new_game()`, and update the HUD's score on
@@ -323,7 +330,9 @@ music, sound effects, a quit key, and an actual exported build.
 
 ### Build steps
 1. Add a background layer behind gameplay.
-2. Add music (loop on `new_game`, stop on `game_over`) and a death SFX.
+2. Add music (`audio/House In a Forest Loop.ogg` — enable **Loop** in the Import
+   dock; play on `new_game`, stop on `game_over`) and a death SFX
+   (`audio/gameover.wav`, one-shot).
 3. Add a `quit`/`ui_cancel` action to exit.
 4. (Optional) Create an autoload for shared state or a music manager.
 5. Install export templates and export a build for at least one platform;
