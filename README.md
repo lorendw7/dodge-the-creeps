@@ -56,8 +56,9 @@ dodge-the-creeps/
 ├── LICENSE
 ├── .gitignore             ← Godot-aware ignore rules
 ├── project.godot          ← Godot project manifest (makes the folder importable)
-├── art/                   ← sprites & images you import
-├── audio/                 ← music & sound effects
+├── art/                   ← sprites & images (player + 3 enemy types)
+├── audio/                 ← music (.ogg) & sound effects (.wav)
+├── fonts/                 ← Xolonium font (used by the HUD) + its license
 ├── scenes/                ← your .tscn scene files (Player, Mob, Main, HUD…)
 ├── scripts/               ← your .gd scripts
 └── docs/
